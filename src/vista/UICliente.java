@@ -180,7 +180,7 @@ public class UICliente extends javax.swing.JFrame {
 
         Cliente objCliente = new Cliente(codigoCliente, edadCliente, nombreCliente, telefonoCliente, correoCliente);
         listaClientes.add(objCliente);
-         JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");   
+        JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -204,29 +204,14 @@ public class UICliente extends javax.swing.JFrame {
 
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
         boolean t = modelo.guardarArchivos(listaClientes);
-        if (t){
+        if (t) {
             JOptionPane.showMessageDialog(null, "Se creo el archivo exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se creo el archivo");
         }
-        else{
-            JOptionPane.showMessageDialog(null, "No se creo el archivo");  
-        }
-//        try {
-//            String nombreArchivo = "clientes.txt";
-//            PrintWriter salida = new PrintWriter(
-//                    new BufferedWriter(new FileWriter(nombreArchivo)));
-//
-//            String linea = "";
-//            for (Cliente objE : listaClientes) {
-//                linea = objE.toString();
-//                salida.println(linea);
-//            }
-//            JOptionPane.showMessageDialog(null,"el archivo se ha creado");
-//            salida.close();
-//        } catch (IOException e) {
-//            JOptionPane.showMessageDialog(null, "Error almacenando los datos en archivo texto "
-//                    + e.getMessage() + " -- " + e.toString());
-//        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
