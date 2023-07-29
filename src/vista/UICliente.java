@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
+import modelo.modelo;
 
 /**
  *
@@ -203,22 +204,29 @@ public class UICliente extends javax.swing.JFrame {
 
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        try {
-            String nombreArchivo = "clientes.txt";
-            PrintWriter salida = new PrintWriter(
-                    new BufferedWriter(new FileWriter(nombreArchivo)));
-
-            String linea = "";
-            for (Cliente objE : listaClientes) {
-                linea = objE.toString();
-                salida.println(linea);
-            }
-            JOptionPane.showMessageDialog(null,"el archivo se ha creado");
-            salida.close();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error almacenando los datos en archivo texto "
-                    + e.getMessage() + " -- " + e.toString());
+        boolean t = modelo.guardarArchivos(listaClientes);
+        if (t){
+            JOptionPane.showMessageDialog(null, "Se creo el archivo exitosamente");
         }
+        else{
+            JOptionPane.showMessageDialog(null, "No se creo el archivo");  
+        }
+//        try {
+//            String nombreArchivo = "clientes.txt";
+//            PrintWriter salida = new PrintWriter(
+//                    new BufferedWriter(new FileWriter(nombreArchivo)));
+//
+//            String linea = "";
+//            for (Cliente objE : listaClientes) {
+//                linea = objE.toString();
+//                salida.println(linea);
+//            }
+//            JOptionPane.showMessageDialog(null,"el archivo se ha creado");
+//            salida.close();
+//        } catch (IOException e) {
+//            JOptionPane.showMessageDialog(null, "Error almacenando los datos en archivo texto "
+//                    + e.getMessage() + " -- " + e.toString());
+//        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
